@@ -9,42 +9,46 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">          {/* Logo */}
-          <Link href="/" className="flex items-center">
+    <header className="fixed top-0 left-0 right-0 bg-clean-white/90 backdrop-blur-md z-50 shadow-sm transition-colors">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-1">
             <Image
               src="/images/logo.png"
               alt="Ecovera Solutions"
-              width={200}
-              height={60}
-              className="h-14 w-auto"
+              width={40}
+              height={40}
+              className="h-10 w-auto"
             />
+            <span className="text-xl font-bold font-rymaneco text-leaf-green hidden md:inline">
+              Ec
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
               href="/" 
-              className="text-gray-800 hover:text-green-600 font-medium transition-colors"
+              className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
             >
               Home
             </Link>
             <Link 
               href="/about" 
-              className="text-gray-800 hover:text-green-600 font-medium transition-colors"
+              className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
             >
               About
             </Link>
             <Link 
               href="/services" 
-              className="text-gray-800 hover:text-green-600 font-medium transition-colors"
+              className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
             >
               Services
             </Link>
             <Link 
               href="/contact" 
-              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+              className="px-4 py-2 bg-leaf-green text-clean-white rounded-md hover:bg-deep-forest transition-colors"
             >
               Contact Us
             </Link>
@@ -52,42 +56,42 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-800 focus:outline-none"
+            className="md:hidden text-deep-forest focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4">
+          <nav className="md:hidden bg-clean-white rounded-lg shadow-md mt-4 py-4 px-2">
             <div className="flex flex-col space-y-4">
               <Link
                 href="/"
-                className="text-gray-800 hover:text-green-600 font-medium transition-colors"
+                className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="text-gray-800 hover:text-green-600 font-medium transition-colors"
+                className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/services"
-                className="text-gray-800 hover:text-green-600 font-medium transition-colors"
+                className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
               <Link
                 href="/contact"
-                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors inline-block"
+                className="px-4 py-2 bg-leaf-green text-clean-white rounded-md hover:bg-deep-forest transition-colors inline-block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us
