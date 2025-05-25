@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -69,7 +70,6 @@ const ContactForm = () => {
       }));
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -108,11 +108,21 @@ const ContactForm = () => {
       }, 5000);
     }, 1000);
   };
-
   if (isSubmitted) {
     return (
-      <div className="bg-clean-white rounded-2xl shadow-lg p-8 text-center">
-        <CheckCircle size={64} className="mx-auto mb-4 text-leaf-green" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-clean-white rounded-2xl shadow-lg p-8 text-center"
+      >
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+        >
+          <CheckCircle size={64} className="mx-auto mb-4 text-leaf-green" />
+        </motion.div>
         <h3 className="text-2xl font-bold font-rymaneco text-deep-forest mb-4">
           Thank You!
         </h3>
@@ -122,14 +132,19 @@ const ContactForm = () => {
         <p className="text-sm text-charcoal-grey">
           This form will reset automatically in a few seconds.
         </p>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-clean-white rounded-2xl shadow-lg p-8 space-y-6">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold font-rymaneco text-deep-forest mb-2">
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      onSubmit={handleSubmit} 
+      className="bg-gradient-to-br from-white to-stone-grey/30 rounded-3xl shadow-eco-lg p-8 space-y-6 backdrop-eco border border-stone-grey/20"
+    >
+      <div className="text-center mb-8">        <h3 className="text-3xl font-bold font-rymaneco text-gradient-eco mb-2">
           Send us a Message
         </h3>
         <p className="text-charcoal-grey">
@@ -141,21 +156,19 @@ const ContactForm = () => {
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-deep-forest mb-2">
           Full Name <span className="text-red-500">*</span>
-        </label>
-        <input
+        </label>        <input
           type="text"
           id="name"
           name="name"
           value={formData.name}
           onChange={handleInputChange}
-          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-leaf-green focus:border-leaf-green outline-none transition-colors ${
-            errors.name ? 'border-red-500' : 'border-stone-grey'
-          }`}
+          className={`form-input ${errors.name ? 'error' : ''}`}
           placeholder="Enter your full name"
+          aria-describedby={errors.name ? "name-error" : undefined}
         />
         {errors.name && (
-          <div className="flex items-center mt-1 text-red-500 text-sm">
-            <AlertCircle size={16} className="mr-1" />
+          <div className="flex items-center mt-1 text-red-500 text-sm" id="name-error" role="alert">
+            <AlertCircle size={16} className="mr-1" aria-hidden="true" />
             {errors.name}
           </div>
         )}
@@ -165,21 +178,19 @@ const ContactForm = () => {
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-deep-forest mb-2">
           Email Address <span className="text-red-500">*</span>
-        </label>
-        <input
+        </label>        <input
           type="email"
           id="email"
           name="email"
           value={formData.email}
           onChange={handleInputChange}
-          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-leaf-green focus:border-leaf-green outline-none transition-colors ${
-            errors.email ? 'border-red-500' : 'border-stone-grey'
-          }`}
+          className={`form-input ${errors.email ? 'error' : ''}`}
           placeholder="Enter your email address"
+          aria-describedby={errors.email ? "email-error" : undefined}
         />
         {errors.email && (
-          <div className="flex items-center mt-1 text-red-500 text-sm">
-            <AlertCircle size={16} className="mr-1" />
+          <div className="flex items-center mt-1 text-red-500 text-sm" id="email-error" role="alert">
+            <AlertCircle size={16} className="mr-1" aria-hidden="true" />
             {errors.email}
           </div>
         )}
@@ -189,14 +200,13 @@ const ContactForm = () => {
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-deep-forest mb-2">
           Phone Number (Optional)
-        </label>
-        <input
+        </label>        <input
           type="tel"
           id="phone"
           name="phone"
           value={formData.phone}
           onChange={handleInputChange}
-          className="w-full px-4 py-3 border border-stone-grey rounded-lg focus:ring-2 focus:ring-leaf-green focus:border-leaf-green outline-none transition-colors"
+          className="form-input"
           placeholder="Enter your phone number"
         />
       </div>
@@ -205,49 +215,60 @@ const ContactForm = () => {
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-deep-forest mb-2">
           Message <span className="text-red-500">*</span>
-        </label>
-        <textarea
+        </label>        <textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleInputChange}
           rows={5}
-          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-leaf-green focus:border-leaf-green outline-none transition-colors resize-vertical ${
-            errors.message ? 'border-red-500' : 'border-stone-grey'
-          }`}
+          className={`form-input resize-vertical ${errors.message ? 'error' : ''}`}
           placeholder="Tell us about your project or how we can help you..."
+          aria-describedby={errors.message ? "message-error" : undefined}
         />
         {errors.message && (
-          <div className="flex items-center mt-1 text-red-500 text-sm">
-            <AlertCircle size={16} className="mr-1" />
+          <div className="flex items-center mt-1 text-red-500 text-sm" id="message-error" role="alert">
+            <AlertCircle size={16} className="mr-1" aria-hidden="true" />
             {errors.message}
-          </div>
-        )}
+          </div>)}
       </div>
 
-      {/* Submit Button */}
-      <button
+      {/* Submit Button */}      <motion.button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-leaf-green text-clean-white py-3 px-6 rounded-lg font-medium hover:bg-deep-forest transition-colors duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+        whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+        className="btn-primary w-full focus-visible flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-describedby="submit-status"
       >
-        {isSubmitting ? (
-          <>
-            <div className="w-5 h-5 border-2 border-clean-white border-t-transparent rounded-full animate-spin" />
-            <span>Sending...</span>
-          </>
-        ) : (
-          <>
-            <Send size={20} />
-            <span>Send Message</span>
-          </>
-        )}
-      </button>
-
-      <p className="text-xs text-charcoal-grey text-center">
+        <AnimatePresence mode="wait">
+          {isSubmitting ? (
+            <motion.div
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex items-center space-x-2"
+            >
+              <Loader2 size={20} className="animate-spin" />
+              <span>Sending...</span>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="submit"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex items-center space-x-2"
+            >
+              <Send size={20} />
+              <span>Send Message</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button><p className="text-xs text-charcoal-grey text-center">
         By submitting this form, you agree to our privacy policy and terms of service.
       </p>
-    </form>
+    </motion.form>
   );
 };
 

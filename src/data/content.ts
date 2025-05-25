@@ -12,32 +12,36 @@ export const servicesData = [
     title: "Sustainable Consulting",
     description:
       "Expert guidance to help you transform your business practices into eco-friendly, future-ready operations.",
+    image: "/images/services-1.png",
     fullDescription:
       "Our comprehensive consulting services help businesses of all sizes transition to sustainable practices. We analyze your current operations, identify areas for improvement, and develop customized strategies that reduce environmental impact while maintaining profitability. Our certified experts work closely with your team to implement green initiatives, monitor progress, and ensure long-term success in your sustainability journey.",
   },
   {
-    icon: "Lightbulb",
+    icon: "SunMedium",
     title: "Green Energy Solutions",
     description:
       "Implement innovative renewable energy strategies to reduce your carbon footprint and save costs.",
+    image: "/images/services-2.png",
     fullDescription:
       "Transform your energy consumption with our cutting-edge renewable energy solutions. We design and implement solar, wind, and other renewable energy systems tailored to your specific needs. Our services include energy audits, system design, installation oversight, and ongoing maintenance. Experience significant cost savings while contributing to a cleaner environment with measurable impact on your carbon footprint.",
   },
   {
     icon: "Recycle",
-    title: "Waste Reduction",
+    title: "Waste Management & Recycling",
     description:
-      "Turn waste into value with our efficient and effective waste reduction programs.",
+      "Turn waste into value with our efficient and effective waste reduction programs and circular economy solutions.",
+    image: "/images/services-3.png",
     fullDescription:
       "Maximize resource efficiency and minimize waste with our comprehensive waste reduction programs. We conduct thorough waste audits, implement circular economy principles, and develop custom solutions that turn waste streams into valuable resources. Our approach includes recycling optimization, composting systems, and innovative waste-to-energy solutions that reduce landfill dependency and create new revenue streams.",
   },
   {
-    icon: "Feather",
-    title: "Eco-friendly Product Design",
+    icon: "Globe",
+    title: "Environmental Impact Assessment",
     description:
-      "Design and create products with minimal environmental impact using green materials and processes.",
+      "Comprehensive analysis and monitoring of your environmental footprint with actionable improvement strategies.",
+    image: "/images/services-4.png",
     fullDescription:
-      "Revolutionize your product development with sustainable design principles. Our expert team helps you create products using eco-friendly materials, biodegradable components, and minimal packaging. We focus on lifecycle assessment, durability, and end-of-life considerations to ensure your products meet environmental standards while maintaining quality and market appeal. From concept to market, we guide you through every step of sustainable product development.",
+      "Get a complete understanding of your environmental impact with our thorough assessment services. We use advanced monitoring tools and data analysis to track carbon emissions, water usage, waste generation, and resource consumption. Our detailed reports provide clear insights and actionable recommendations to help you achieve your sustainability goals and regulatory compliance.",
   },
 ];
 

@@ -24,31 +24,30 @@ const Header = () => {
             <span className="text-xl font-bold font-rymaneco text-leaf-green hidden md:inline">
               Ec
             </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          </Link>          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
             <Link 
               href="/" 
-              className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
+              className="nav-link font-medium"
+              aria-current="page"
             >
               Home
             </Link>
             <Link 
               href="/about" 
-              className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
+              className="nav-link font-medium"
             >
               About
             </Link>
             <Link 
               href="/services" 
-              className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
+              className="nav-link font-medium"
             >
               Services
             </Link>
             <Link 
               href="/contact" 
-              className="px-4 py-2 bg-leaf-green text-clean-white rounded-md hover:bg-deep-forest transition-colors"
+              className="btn-primary focus-visible"
             >
               Contact Us
             </Link>
@@ -56,42 +55,47 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-deep-forest focus:outline-none"
+            className="md:hidden text-deep-forest focus:outline-none focus-visible p-2 rounded-lg"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-        </div>
-
-        {/* Mobile Navigation */}
+        </div>        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden bg-clean-white rounded-lg shadow-md mt-4 py-4 px-2">
+          <nav 
+            className="md:hidden bg-clean-white rounded-lg shadow-md mt-4 py-4 px-2"
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
+          >
             <div className="flex flex-col space-y-4">
               <Link
                 href="/"
-                className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
+                className="nav-link font-medium p-2 rounded"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
+                className="nav-link font-medium p-2 rounded"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/services"
-                className="text-deep-forest hover:text-leaf-green font-medium transition-colors"
+                className="nav-link font-medium p-2 rounded"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
               <Link
                 href="/contact"
-                className="px-4 py-2 bg-leaf-green text-clean-white rounded-md hover:bg-deep-forest transition-colors inline-block"
+                className="btn-primary focus-visible inline-block text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us

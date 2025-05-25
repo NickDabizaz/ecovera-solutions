@@ -23,3 +23,509 @@ body {
 .section-title {
   @apply text-3xl md:text-4xl font-bold font-rymaneco text-deep-forest text-center mb-12;
 }
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply bg-leaf-green text-clean-white py-3 px-6 rounded-lg font-medium 
+         hover:bg-deep-forest transition-all duration-300 
+         focus:outline-none focus:ring-2 focus:ring-leaf-green focus:ring-offset-2
+         transform hover:scale-105 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-leaf-green text-leaf-green py-3 px-6 rounded-lg font-medium
+         hover:bg-leaf-green hover:text-clean-white transition-all duration-300
+         focus:outline-none focus:ring-2 focus:ring-leaf-green focus:ring-offset-2
+         transform hover:scale-105 active:scale-95;
+}
+
+/* Enhanced Form Styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-stone-grey rounded-lg 
+         focus:ring-2 focus:ring-leaf-green focus:border-leaf-green 
+         outline-none transition-all duration-300
+         hover:border-leaf-green/50;
+}
+
+.form-input:focus {
+  @apply shadow-lg transform scale-[1.01];
+}
+
+.form-input.error {
+  @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:scale-105;
+}
+
+.card-hover-subtle {
+  @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02];
+}
+
+/* Link Styles */
+.link-hover {
+  @apply transition-all duration-300 hover:text-leaf-green hover:underline decoration-2 underline-offset-4;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-clean-white;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-stone-grey rounded-full hover:bg-charcoal-grey;
+}
+
+/* Loading Animation */
+@keyframes pulse-green {
+  0%, 100% {
+    background-color: theme('colors.leaf-green');
+  }
+  50% {
+    background-color: theme('colors.deep-forest');
+  }
+}
+
+.pulse-green {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+/* Focus Visible for Accessibility */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-leaf-green ring-offset-2;
+}
+
+/* Navigation enhancements */
+.nav-link {
+  @apply text-deep-forest hover:text-leaf-green transition-colors duration-300 
+         relative after:content-[''] after:absolute after:w-0 after:h-0.5 
+         after:bg-leaf-green after:left-0 after:-bottom-1 
+         after:transition-all after:duration-300 hover:after:w-full;
+}
+
+/* Hero section background enhancement */
+.hero-bg {
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%),
+              url('/hero-bg.jpg') center/cover no-repeat;
+}
+
+/* Enhanced Gradient Animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-animation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(76, 175, 80, 0.6);
+  }
+}
+
+/* Gradient Background Classes */
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, 
+    theme('colors.leaf-green'), 
+    theme('colors.sage-green'), 
+    theme('colors.deep-forest'), 
+    theme('colors.leaf-green/80')
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.bg-gradient-eco {
+  background: linear-gradient(135deg, 
+    theme('colors.clean-white') 0%, 
+    theme('colors.stone-grey/20') 30%, 
+    theme('colors.leaf-green/10') 60%, 
+    theme('colors.sage-green/20') 100%
+  );
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, 
+    theme('colors.deep-forest/80') 0%, 
+    theme('colors.leaf-green/60') 30%, 
+    theme('colors.sage-green/40') 70%, 
+    theme('colors.deep-forest/60') 100%
+  );
+}
+
+/* Text Gradient Effects */
+.text-gradient-eco {
+  @apply bg-gradient-to-r from-leaf-green via-sage-green to-deep-forest bg-clip-text text-transparent;
+}
+
+.text-gradient-animated {
+  background: linear-gradient(-45deg, 
+    theme('colors.leaf-green'), 
+    theme('colors.sage-green'), 
+    theme('colors.deep-forest'), 
+    theme('colors.leaf-green')
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 6s ease infinite;
+  @apply bg-clip-text text-transparent;
+}
+
+/* Floating Animation */
+.float-animation {
+  animation: float-animation 3s ease-in-out infinite;
+}
+
+.float-animation-delayed {
+  animation: float-animation 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Glow Effects */
+.glow-green {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.shadow-eco {
+  box-shadow: 0 10px 25px -5px rgba(76, 175, 80, 0.1), 
+              0 10px 10px -5px rgba(76, 175, 80, 0.04);
+}
+
+.shadow-eco-lg {
+  box-shadow: 0 25px 50px -12px rgba(76, 175, 80, 0.25), 
+              0 25px 25px -12px rgba(76, 175, 80, 0.1);
+}
+
+/* Advanced Hover Effects */
+.hover-glow:hover {
+  @apply shadow-eco-lg;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Backdrop Blur Effects */
+.backdrop-eco {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Improved Card Animations */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(2deg) translateZ(20px);
+}
+
+/* Loading Spinner */
+@keyframes spin-eco {
+  0% {
+    transform: rotate(0deg);
+    border-color: theme('colors.leaf-green') transparent transparent transparent;
+  }
+  25% {
+    border-color: theme('colors.sage-green') transparent transparent transparent;
+  }
+  50% {
+    border-color: theme('colors.deep-forest') transparent transparent transparent;
+  }
+  75% {
+    border-color: theme('colors.leaf-green') transparent transparent transparent;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: theme('colors.leaf-green') transparent transparent transparent;
+  }
+}
+
+.spinner-eco {
+  width: 40px;
+  height: 40px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin-eco 1.2s linear infinite;
+}
+
+/* Particle Effects */
+.particle-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(76, 175, 80, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(139, 195, 74, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(46, 125, 50, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(76, 175, 80, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 150px 100px;
+  animation: float-animation 20s linear infinite;
+  opacity: 0.6;
+}
+
+/* Enhanced Responsive Design */
+@media (prefers-reduced-motion: reduce) {
+  .float-animation,
+  .bg-gradient-animated,
+  .text-gradient-animated,
+  .glow-green,
+  .particle-bg::before {
+    animation: none;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .section-title {
+    @apply text-2xl mb-8;
+  }
+  
+  .btn-primary, .btn-secondary {
+    @apply py-2 px-4 text-sm;
+  }
+  
+  .card-hover {
+    @apply hover:scale-100; /* Disable scale on mobile for better touch experience */
+  }
+}
+
+/* Enhanced Gradient Animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-animation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(74, 122, 70, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(74, 122, 70, 0.6);
+  }
+}
+
+/* Gradient Background Classes */
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, 
+    #4A7A46, 
+    #8BC34A, 
+    #1A3A3A, 
+    rgba(74, 122, 70, 0.8)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.bg-gradient-eco {
+  background: linear-gradient(135deg, 
+    #FFFFFF 0%, 
+    rgba(240, 240, 240, 0.2) 30%, 
+    rgba(74, 122, 70, 0.1) 60%, 
+    rgba(139, 195, 74, 0.2) 100%
+  );
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, 
+    rgba(26, 58, 58, 0.8) 0%, 
+    rgba(74, 122, 70, 0.6) 30%, 
+    rgba(139, 195, 74, 0.4) 70%, 
+    rgba(26, 58, 58, 0.6) 100%
+  );
+}
+
+/* Text Gradient Effects */
+.text-gradient-eco {
+  background: linear-gradient(to right, #4A7A46, #8BC34A, #1A3A3A);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-animated {
+  background: linear-gradient(-45deg, 
+    #4A7A46, 
+    #8BC34A, 
+    #1A3A3A, 
+    #4A7A46
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 6s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Floating Animation */
+.float-animation {
+  animation: float-animation 3s ease-in-out infinite;
+}
+
+.float-animation-delayed {
+  animation: float-animation 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Glow Effects */
+.glow-green {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.shadow-eco {
+  box-shadow: 0 10px 25px -5px rgba(74, 122, 70, 0.1), 
+              0 10px 10px -5px rgba(74, 122, 70, 0.04);
+}
+
+.shadow-eco-lg {
+  box-shadow: 0 25px 50px -12px rgba(74, 122, 70, 0.25), 
+              0 25px 25px -12px rgba(74, 122, 70, 0.1);
+}
+
+/* Advanced Hover Effects */
+.hover-glow:hover {
+  box-shadow: 0 25px 50px -12px rgba(74, 122, 70, 0.25), 
+              0 25px 25px -12px rgba(74, 122, 70, 0.1);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Backdrop Blur Effects */
+.backdrop-eco {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Improved Card Animations */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(2deg) translateZ(20px);
+}
+
+/* Loading Spinner */
+@keyframes spin-eco {
+  0% {
+    transform: rotate(0deg);
+    border-color: #4A7A46 transparent transparent transparent;
+  }
+  25% {
+    border-color: #8BC34A transparent transparent transparent;
+  }
+  50% {
+    border-color: #1A3A3A transparent transparent transparent;
+  }
+  75% {
+    border-color: #4A7A46 transparent transparent transparent;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: #4A7A46 transparent transparent transparent;
+  }
+}
+
+.spinner-eco {
+  width: 40px;
+  height: 40px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin-eco 1.2s linear infinite;
+}
+
+/* Particle Effects */
+.particle-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(74, 122, 70, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(139, 195, 74, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(26, 58, 58, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(74, 122, 70, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 150px 100px;
+  animation: float-animation 20s linear infinite;
+  opacity: 0.6;
+}
+
+/* Enhanced Responsive Design */
+@media (prefers-reduced-motion: reduce) {
+  .float-animation,
+  .bg-gradient-animated,
+  .text-gradient-animated,
+  .glow-green,
+  .particle-bg::before {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

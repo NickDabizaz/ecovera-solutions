@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ecovera Solutions Website
 
-## Getting Started
+A modern, sustainable business website built with Next.js 15, featuring comprehensive SEO, smooth animations, and accessibility-first design.
 
-First, run the development server:
+## 🌱 Features
+
+### Core Features
+- **Modern Design**: Clean, eco-friendly design with custom color palette and typography
+- **Responsive Layout**: Mobile-first approach with seamless desktop experience
+- **Performance Optimized**: Fast loading times with Next.js optimization
+- **SEO Ready**: Comprehensive SEO implementation with meta tags, Open Graph, and structured data
+
+### Technical Highlights
+- **Next.js 15**: Latest React framework with App Router
+- **TypeScript**: Type-safe development environment
+- **Tailwind CSS**: Utility-first styling with custom design system
+- **Framer Motion**: Smooth animations and micro-interactions
+- **Font Awesome**: Professional icon library integration
+- **Custom Fonts**: RymanEco sustainable font family
+
+### Pages & Components
+- **Homepage**: Hero section with animated background and call-to-action
+- **About**: Company information and mission statement
+- **Services**: Detailed service offerings with interactive cards
+- **Contact**: Animated contact form with validation
+- **404 Page**: Custom error page with helpful navigation
+
+### Accessibility & UX
+- **WCAG Compliant**: Proper ARIA labels, focus management, and keyboard navigation
+- **Screen Reader Friendly**: Semantic HTML and descriptive text
+- **High Contrast**: Accessible color combinations
+- **Error States**: Clear validation and error messaging
+
+## 🚀 Getting Started
+
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/          # Reusable React components
+├── data/               # Static content and data
+├── lib/                # Third-party library configurations
+└── utils/              # Utility functions and helpers
+```
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+### Colors
+- **Primary**: Leaf Green (#4CAF50)
+- **Secondary**: Deep Forest (#2E7D32)
+- **Accent**: Sky Blue (#03A9F4)
+- **Background**: Clean White (#FAFAFA)
+- **Text**: Deep Forest, Charcoal Grey
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Typography
+- **Headings**: RymanEco (sustainable font)
+- **Body**: Inter (system fallback)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Technologies
 
-## Deploy on Vercel
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Icons**: Font Awesome + Lucide React
+- **Deployment**: Vercel (recommended)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Development Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Performance
+- Image optimization with next/image
+- Font optimization and preloading
+- CSS purging in production
+- Component-level code splitting
+
+### SEO
+- Dynamic meta tags per page
+- Structured data markup
+- Open Graph and Twitter Cards
+- Sitemap generation ready
+
+## 🌿 Sustainability Focus
+
+This website embodies sustainable web development practices:
+- Minimal resource usage
+- Optimized images and fonts
+- Efficient animations
+- Clean, semantic code
+- Accessibility-first approach
+
+## 📄 License
+
+This project is licensed under the MIT License.

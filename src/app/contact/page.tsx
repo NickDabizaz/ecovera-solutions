@@ -5,10 +5,14 @@ import ContactForm from '@/components/ContactForm';
 import { contactInfo } from '@/data/content';
 import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Facebook } from 'lucide-react';
 import FadeInOnScroll from '@/components/FadeInOnScroll';
+import SEOHead from '@/components/SEOHead';
+import { generateSEOProps } from '@/utils/seo';
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col">
+    <>
+      <SEOHead seo={generateSEOProps('contact')} />
+      <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-deep-forest via-leaf-green to-deep-forest text-clean-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -247,9 +251,9 @@ export default function ContactPage() {
             >
               Call Now
             </a>
-          </div>
-        </div>
+          </div>        </div>
       </section>
     </div>
+    </>
   );
 }

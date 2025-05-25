@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   // Performance optimizations
@@ -18,13 +18,24 @@ const nextConfig: NextConfig = {
   // Enable compression
   compress: true,
   
+  // Optimize fonts
+  optimizeFonts: true,
+  
   // Advanced optimizations
   experimental: {
     optimizeCss: true,
     webpackBuildWorker: true,
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
   
-  // Headers for better caching and security
+  // Headers for better caching
   async headers() {
     return [
       {

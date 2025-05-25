@@ -5,10 +5,14 @@ import ServiceCard from '@/components/ServiceCard';
 import { servicesData, whyChooseUs } from '@/data/content';
 import { CheckCircle } from 'lucide-react';
 import FadeInOnScroll from '@/components/FadeInOnScroll';
+import SEOHead from '@/components/SEOHead';
+import { generateSEOProps } from '@/utils/seo';
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col">
+    <>
+      <SEOHead seo={generateSEOProps('services')} />
+      <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-leaf-green to-deep-forest text-clean-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -184,9 +188,9 @@ export default function ServicesPage() {
             >
               Learn More About Us
             </a>
-          </div>
-        </div>
+          </div>        </div>
       </section>
     </div>
+    </>
   );
 }

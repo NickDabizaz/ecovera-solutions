@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { aboutContent } from '@/data/content';
 import { Globe, Lightbulb, ShieldCheck, SunMedium } from 'lucide-react';
 import FadeInOnScroll from '@/components/FadeInOnScroll';
+import SEOHead from '@/components/SEOHead';
+import { generateSEOProps } from '@/utils/seo';
 
 // Icon mapping for values
 const iconMap = {
@@ -16,7 +18,9 @@ const iconMap = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col">
+    <>
+      <SEOHead seo={generateSEOProps('about')} />
+      <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-deep-forest to-leaf-green text-clean-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -150,9 +154,9 @@ export default function AboutPage() {
             className="inline-block px-8 py-3 bg-clean-white text-leaf-green rounded-full text-lg font-medium hover:bg-stone-grey transition-colors duration-300 shadow-lg"
           >
             Get in Touch
-          </a>
-        </div>
+          </a>        </div>
       </section>
     </div>
+    </>
   );
 }
