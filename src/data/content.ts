@@ -138,3 +138,31 @@ export const whyChooseUs = {
     },
   ],
 };
+
+// Contact Information
+export const contactInfo = {
+  title: "Get in Touch",
+  subtitle:
+    "We'd love to hear from you. Please fill out the form below or use the provided information to get in touch with our team.",
+  details: {
+    email: "hello@ecoverasolutions.com",
+    phone: "+1 (555) 123-4567",
+    address: {
+      street: "123 Green Valley Drive",
+      city: "San Francisco",
+      state: "CA",
+      zip: "94102",
+      country: "United States",
+    },
+    hours: {
+      weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
+      weekends: "Saturday: 10:00 AM - 4:00 PM",
+      closed: "Sunday: Closed",
+    },
+  },
+  social: {
+    linkedin: "https://linkedin.com/company/ecovera-solutions",
+    twitter: "https://twitter.com/ecoverasolutions",
+    facebook: "https://facebook.com/ecoverasolutions",
+  },
+};
